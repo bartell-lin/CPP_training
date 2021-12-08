@@ -1,0 +1,1 @@
+To make your C++ program ready for debugging, you can use the -g flag to produce debugging information to use with GDB.

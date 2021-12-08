@@ -1,0 +1,1 @@
+You can supress generating only object code and not final executable with the -c flag.
