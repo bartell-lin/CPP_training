@@ -12,7 +12,7 @@ int main() {
     arr[2] = &c;
 
     cout << *(int *) arr[0] << "\n";
-	cout << *(float *) arr[1] << "\n";
+    cout << *(float *) arr[1] << "\n";
     cout << *(char *) arr[2] << "\n";
 
 }
