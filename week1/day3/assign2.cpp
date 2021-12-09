@@ -19,7 +19,7 @@ int main() {
 
 /*
 In my particular example, it is not possible to automatically recognize the type of each element. You need to manually cast the type. This is 
-because is use a void pointer to the arr to make it typeless. This way, I can created a mixed array of ints and floats. The downside is that you
+because I use a void pointer to the array to make it typeless. This way, I can created a mixed array of ints, floats, and chars. The downside is that you
 need to manually cast the type if you want to get the elements.
 
 */
