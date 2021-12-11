@@ -45,7 +45,7 @@ int main() {
 
 
 vector< vector<int> > matrix_mult(vector< vector<int> > a, vector< vector<int> > b) {
-	assert(a[0].size() == b.size());  // Checks if dimensions are valide for multiplication
+	assert(a[0].size() == b.size());  // Checks if dimensions are valid for multiplication
 
 	int m = a.size();
 	int n = b.size();
