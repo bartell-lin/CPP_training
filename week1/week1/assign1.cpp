@@ -3,6 +3,7 @@
 #include <string>
 #include <ctime>
 #include <sstream>
+#include <fstream>
 #include "assign1.h"
 
 using namespace std;
@@ -17,10 +18,16 @@ struct bank {
 
 vector<bank> bank_accounts;
 int counter = 101;
-string username = "admin";
-string password = "secret";
 
 int main() {
+	string username;
+	string password;
+	ifstream inputFile("./password.txt");
+	if (inputFile.is_open()) {
+		getline(inputFile, username);
+		getline(inputFile, password);
+		inputFile.close();
+	}
 
 	while (true) {
 		cout << "Admin Login" << endl;
