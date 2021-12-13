@@ -1,0 +1,7 @@
+add_test( SplitTest.test1 /Users/bartell/ss/week1/week1/test/build/hello_test [==[--gtest_filter=SplitTest.test1]==] --gtest_also_run_disabled_tests)
+set_tests_properties( SplitTest.test1 PROPERTIES WORKING_DIRECTORY /Users/bartell/ss/week1/week1/test/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( AccountTest.test2 /Users/bartell/ss/week1/week1/test/build/hello_test [==[--gtest_filter=AccountTest.test2]==] --gtest_also_run_disabled_tests)
+set_tests_properties( AccountTest.test2 PROPERTIES WORKING_DIRECTORY /Users/bartell/ss/week1/week1/test/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( CloseTest.test3 /Users/bartell/ss/week1/week1/test/build/hello_test [==[--gtest_filter=CloseTest.test3]==] --gtest_also_run_disabled_tests)
+set_tests_properties( CloseTest.test3 PROPERTIES WORKING_DIRECTORY /Users/bartell/ss/week1/week1/test/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( hello_test_TESTS SplitTest.test1 AccountTest.test2 CloseTest.test3)
