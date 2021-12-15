@@ -119,6 +119,8 @@ void search_name() {
 	cout << "Select number: ";
 	string input;
 	cin >> input;
+
+	//Incomplete logic. can be fixed
 	if (input == "1") {
 		cout << search[0].name << " " << search[0].ssn.substr(5, 9) << " " << search[0].date_opened << " " << search[0].account_num << endl;
 	} else if (input == "2") {

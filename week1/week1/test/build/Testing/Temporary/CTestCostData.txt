@@ -1,6 +1,6 @@
 HelloTest.BasicAssertions 1 0.00553694
-SplitTest.test1 9 0.000620391
+SplitTest.test1 10 0.00062788
 AccountTest.tes2 5 0.00128685
-AccountTest.test2 3 0.00214012
-CloseTest.test3 2 0.00310685
+AccountTest.test2 4 0.0016044
+CloseTest.test3 3 0.00234625
 ---

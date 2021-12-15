@@ -1,10 +1,10 @@
-Start testing: Dec 12 22:00 PST
+Start testing: Dec 13 13:38 PST
 ----------------------------------------------------------
 1/3 Testing: SplitTest.test1
 1/3 Test: SplitTest.test1
 Command: "/Users/bartell/ss/week1/week1/test/build/hello_test" "--gtest_filter=SplitTest.test1" "--gtest_also_run_disabled_tests"
 Directory: /Users/bartell/ss/week1/week1/test/build
-"SplitTest.test1" start time: Dec 12 22:00 PST
+"SplitTest.test1" start time: Dec 13 13:38 PST
 Output:
 ----------------------------------------------------------
 Running main() from /Users/bartell/ss/week1/week1/test/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -23,7 +23,7 @@ Note: Google Test filter = SplitTest.test1
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"SplitTest.test1" end time: Dec 12 22:00 PST
+"SplitTest.test1" end time: Dec 13 13:38 PST
 "SplitTest.test1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -31,7 +31,7 @@ Test Passed.
 2/3 Test: AccountTest.test2
 Command: "/Users/bartell/ss/week1/week1/test/build/hello_test" "--gtest_filter=AccountTest.test2" "--gtest_also_run_disabled_tests"
 Directory: /Users/bartell/ss/week1/week1/test/build
-"AccountTest.test2" start time: Dec 12 22:00 PST
+"AccountTest.test2" start time: Dec 13 13:38 PST
 Output:
 ----------------------------------------------------------
 Running main() from /Users/bartell/ss/week1/week1/test/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -40,17 +40,17 @@ Note: Google Test filter = AccountTest.test2
 [----------] Global test environment set-up.
 [----------] 1 test from AccountTest
 [ RUN      ] AccountTest.test2
-[       OK ] AccountTest.test2 (0 ms)
-[----------] 1 test from AccountTest (0 ms total)
+[       OK ] AccountTest.test2 (1 ms)
+[----------] 1 test from AccountTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
+[==========] 1 test from 1 test suite ran. (1 ms total)
 [  PASSED  ] 1 test.
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"AccountTest.test2" end time: Dec 12 22:00 PST
+"AccountTest.test2" end time: Dec 13 13:38 PST
 "AccountTest.test2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -58,7 +58,7 @@ Test Passed.
 3/3 Test: CloseTest.test3
 Command: "/Users/bartell/ss/week1/week1/test/build/hello_test" "--gtest_filter=CloseTest.test3" "--gtest_also_run_disabled_tests"
 Directory: /Users/bartell/ss/week1/week1/test/build
-"CloseTest.test3" start time: Dec 12 22:00 PST
+"CloseTest.test3" start time: Dec 13 13:38 PST
 Output:
 ----------------------------------------------------------
 Running main() from /Users/bartell/ss/week1/week1/test/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -68,18 +68,18 @@ Note: Google Test filter = CloseTest.test3
 [----------] 1 test from CloseTest
 [ RUN      ] CloseTest.test3
 Account Closed
-[       OK ] CloseTest.test3 (1 ms)
-[----------] 1 test from CloseTest (1 ms total)
+[       OK ] CloseTest.test3 (0 ms)
+[----------] 1 test from CloseTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (1 ms total)
+[==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"CloseTest.test3" end time: Dec 12 22:00 PST
+"CloseTest.test3" end time: Dec 13 13:38 PST
 "CloseTest.test3" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 12 22:00 PST
+End testing: Dec 13 13:38 PST
