@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package BankAccount;
+
+message bankAccount {
+	string name = 1;
+	string ssn = 2;
+	string account_num = 3;
+	string date_opened = 4;
+	int32 balance = 5;	
+}
+
+message Bank {
+	repeated bankAccount accounts = 1;
+}
