@@ -54,7 +54,7 @@ int main() {
 	}
 
 	{
-		fstream output("binary", ios::out | ios::trunc | ios::binary);
+		// fstream output("binary", ios::out | ios::trunc | ios::binary);
     	fstream input("binary", ios::in | ios::binary);
     		if (!bank.ParseFromIstream(&input)) {
      			cerr << "Failed to parse bank." << endl;
