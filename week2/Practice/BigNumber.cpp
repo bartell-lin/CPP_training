@@ -1,4 +1,9 @@
 #include "BigNumber.h"
+#include <cstring>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -18,39 +23,157 @@ void BigNumber::set(long num) {
 
 void BigNumber::set(string num) {
 	if (overflow) {
-		actualUnion.cnum = num;
+		strcpy(reinterpret_cast<char *>(actualUnion.cnum), num.c_str());
 	} else {
-		// actualUnion.lum = 
+		string::size_type sz;
+		long snum = std::stol (num, &sz);
+		actualUnion.lnum = snum;
 	}
 } 
 
 BigNumber::BigNumber(long num) {
 	overflow = false;
-	bnumber = num;
+	set(num);
 }
 
 BigNumber::BigNumber(string num) {
-	overflow = false;
-	string::size_type sz;
-	long snum = std::stol (str_dec,&sz);
-	bnumber = snum;
+	if (num.length() > 18) {
+		overflow = true;
+	} else {
+		overflow = false;
+	}
+	set(num);
 }
 
-void BigNumber::multiply(const BigNumber& input, BigNumber& output) {
-	long temp = 0;
-	for (int i = 0; i < bnumber; i++) {
-		temp += input.bnumber;
+BigNumber BigNumber::multiply(const BigNumber& input) const{
+	// string::size_type sz;
+	// string num = number();
+	// long n1 = std::stol (num, &sz);
+	// string num2 = input.number();
+	// long n2 = std::stol (num2, &sz);
+
+	// if (n1 < LONG_MAX / n2) {
+	// 	BigNumber out(0);
+	// 	out.set(n1 * n2);
+	// 	return out;
+	// } else {
+	// 	string n1 = number();
+	// 	string n2 = input.number();
+	// 	long temp = 0;
+	// 	for (int i = 0; i < bnumber; i++) {
+	// 		temp += input.bnumber;
+	// 	}
+
+	// 	BigNumber out(0);
+	// 	out.set(temp);
+	// 	return out;
+	// }
+	string n1 = number();
+	string n2 = input.number();
+	reverse(n1.begin(), n1.end());
+	reverse(n2.begin(), n2.end());
+
+	int* ans = new int[n1.size() + n2.size()];
+	
+	for (int i = 0; i < n1.size(); i++) {
+		for (int j = 0; j < n2.size(); j++) {
+			ans[i + j] += ((n1[i] - '0') * (n2[j] - '0'));
+			ans[i + j + 1] += ((ans[i + j])/10);
+			ans[i + j] = (ans[i + j]) % 10;
+		}
 	}
-	output.set(temp);
-	 
+
+	string temp;
+	for (int i = n1.size() + n2.size(); i --> 0; ) {
+  		temp.push_back(ans[i] + '0');
+	}
+	temp.erase(0, min(temp.find_first_not_of('0'), temp.size()-1));
+	BigNumber out(temp);
+
+	delete[] ans;
+	return out;
 }
 
 numvec BigNumber::simulate_multiply(BigNumber& input) {
 	numvec v;
-	
+	string num = number();
+	vector<unsigned char> n1(num.begin(), num.end());
+	v.push_back(n1);
+	string num2 = input.number();
+	vector<unsigned char> n2(num2.begin(), num2.end());
+	v.push_back(n2);
+
+	string::size_type sz;
+	long first = std::stol (num, &sz);
+	long second = std::stol (num2, &sz);
+	long r;
+	long sum = 0;
+	int line = 1;
+	while (second != 0) {
+		r = second % 10;
+		second /= 10;
+		long x = r * first;
+		sum += x * line;
+		string temp = to_string(x);
+		vector<unsigned char> tvec(temp.begin(), temp.end());
+		v.push_back(tvec);
+		line *= 10;
+	}
+
+	string temp = to_string(sum);
+	vector<unsigned char> tvec(temp.begin(), temp.end());
+	v.push_back(tvec);
+
+	return v;
+
 }
 
+void BigNumber::print(numvec v) const {
+	int totalspace = v[v.size() - 1].size();
+	int space = totalspace - v[0].size();
+	for (int k = 0; k < space; k++) {
+		cout << " ";
+	} 
+	for (auto i:v[0]) {
+		cout << i;
+	}
+	cout << endl;
+	cout << "x";
+	space = totalspace - v[1].size() - 1;
+	for (int k = 0; k < space; k++) {
+		cout << " ";
+	} 
+	for (auto i: v[1]) {
+		cout << i;
+	}
+	cout << endl;
+	cout << "-------" << endl;
 
+
+	int i;
+	int line = 0;
+	for (i = 2; i < v.size() - 1; i++) {
+		int space = totalspace - v[i].size() - line;
+		for (int k = 0; k < space; k++) {
+			cout << " ";
+		} 
+		for (auto j: v[i]) {
+			cout << j;
+		}
+		for (int l = 0; l < line; l++) {
+			cout << 0;
+		}
+		cout << endl;
+		line++;
+	}
+	cout << "-------" << endl;
+
+	for (auto j: v[i]) {
+		cout << j;
+	}
+	cout << endl;
+
+}
 
 
 

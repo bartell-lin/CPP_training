@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-typedef vector<vector<>unsigned char> numvec;
+typedef vector<vector<unsigned char>> numvec;
 
 class BigNumber {
 private:
@@ -12,14 +12,13 @@ private:
 	} actualUnion;
 
 public:
-	long bnumber;
-	void multiply(const BigNumber& input, BigNumber& output);
+	BigNumber multiply(const BigNumber& input) const;
 	std::string number() const;
 	void set(long num);
 	void set(std::string);
 	BigNumber(long num);
 	BigNumber(std::string num);
 	numvec simulate_multiply(BigNumber& input);
-	void print(numvec v);
+	void print(numvec v) const;
 };
 

@@ -6,9 +6,10 @@ using namespace std;
 
 
 int main() {
-	BigNumber n(12);
-	BigNumber x(5);
-	BigNumber out(0);
-	n.multiply(x, out);
-	cout << out.bnumber << endl;
+	BigNumber n(124);
+	BigNumber x(456);
+	BigNumber out = n.multiply(x);
+	// numvec nv = n.simulate_multiply(x);
+	// n.print(nv);
+	cout << out.number() << endl;
 }
