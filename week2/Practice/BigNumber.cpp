@@ -56,24 +56,27 @@ BigNumber BigNumber::multiply(const BigNumber& input) const{
 	// 	BigNumber out(0);
 	// 	out.set(n1 * n2);
 	// 	return out;
-	// } else {
-	// 	string n1 = number();
-	// 	string n2 = input.number();
-	// 	long temp = 0;
-	// 	for (int i = 0; i < bnumber; i++) {
-	// 		temp += input.bnumber;
-	// 	}
-
-	// 	BigNumber out(0);
-	// 	out.set(temp);
-	// 	return out;
-	// }
+	// } 
 	string n1 = number();
 	string n2 = input.number();
+
+	if (!overflow && !input.overflow) {
+		string::size_type sz;
+		long ln1 = std::stol (n1, &sz);
+		long ln2 = std::stol (n2, &sz);
+
+		if (ln1 < LONG_MAX / ln2) {
+			long prod = ln1 * ln2;
+			BigNumber out(prod);
+			return out;
+		}
+	}
+
+
 	reverse(n1.begin(), n1.end());
 	reverse(n2.begin(), n2.end());
 
-	int* ans = new int[n1.size() + n2.size()];
+	int* ans = new int[n1.size() + n2.size()]();
 	
 	for (int i = 0; i < n1.size(); i++) {
 		for (int j = 0; j < n2.size(); j++) {
@@ -82,6 +85,7 @@ BigNumber BigNumber::multiply(const BigNumber& input) const{
 			ans[i + j] = (ans[i + j]) % 10;
 		}
 	}
+	
 
 	string temp;
 	for (int i = n1.size() + n2.size(); i --> 0; ) {
@@ -103,25 +107,17 @@ numvec BigNumber::simulate_multiply(BigNumber& input) {
 	vector<unsigned char> n2(num2.begin(), num2.end());
 	v.push_back(n2);
 
-	string::size_type sz;
-	long first = std::stol (num, &sz);
-	long second = std::stol (num2, &sz);
-	long r;
-	long sum = 0;
-	int line = 1;
-	while (second != 0) {
-		r = second % 10;
-		second /= 10;
-		long x = r * first;
-		sum += x * line;
-		string temp = to_string(x);
-		vector<unsigned char> tvec(temp.begin(), temp.end());
+	for (int i = num2.size() - 1; i >= 0; i--) {
+		BigNumber temp(num2[i] - '0');
+		BigNumber tempout = multiply(temp);
+		string x = tempout.number();
+		vector<unsigned char> tvec(x.begin(), x.end());
 		v.push_back(tvec);
-		line *= 10;
 	}
 
-	string temp = to_string(sum);
-	vector<unsigned char> tvec(temp.begin(), temp.end());
+	BigNumber tempout = multiply(input);
+	string x = tempout.number();
+	vector<unsigned char> tvec(x.begin(), x.end());
 	v.push_back(tvec);
 
 	return v;

@@ -5,13 +5,13 @@ typedef vector<vector<unsigned char>> numvec;
 
 class BigNumber {
 private:
-	bool overflow;
 	union {
 		long lnum;
 		unsigned char cnum[64];
 	} actualUnion;
 
 public:
+	bool overflow;
 	BigNumber multiply(const BigNumber& input) const;
 	std::string number() const;
 	void set(long num);
