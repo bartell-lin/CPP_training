@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libCalandar.a CMakeFiles/Calandar.dir/Calandar.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libCalandar.a

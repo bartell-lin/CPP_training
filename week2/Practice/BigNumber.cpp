@@ -10,8 +10,8 @@ using namespace std;
 
 string BigNumber::number() const {
 	if (overflow) {
-		string res(actualUnion.cnum, actualUnion.cnum + 64);
-		return res;
+		string s(actualUnion.cnum, actualUnion.cnum + len);
+		return s;
 	} else {
 		return to_string(actualUnion.lnum);
 	}
@@ -23,6 +23,7 @@ void BigNumber::set(long num) {
 
 void BigNumber::set(string num) {
 	if (overflow) {
+		len = num.size();
 		strcpy(reinterpret_cast<char *>(actualUnion.cnum), num.c_str());
 	} else {
 		string::size_type sz;
@@ -46,17 +47,6 @@ BigNumber::BigNumber(string num) {
 }
 
 BigNumber BigNumber::multiply(const BigNumber& input) const{
-	// string::size_type sz;
-	// string num = number();
-	// long n1 = std::stol (num, &sz);
-	// string num2 = input.number();
-	// long n2 = std::stol (num2, &sz);
-
-	// if (n1 < LONG_MAX / n2) {
-	// 	BigNumber out(0);
-	// 	out.set(n1 * n2);
-	// 	return out;
-	// } 
 	string n1 = number();
 	string n2 = input.number();
 

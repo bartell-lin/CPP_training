@@ -1,10 +1,11 @@
 #include <vector>
 using namespace std;
 
-typedef vector<vector<unsigned char>> numvec;
+typedef vector<vector<unsigned char> > numvec;
 
 class BigNumber {
 private:
+	int len;
 	union {
 		long lnum;
 		unsigned char cnum[64];
