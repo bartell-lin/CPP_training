@@ -731,6 +731,7 @@ CMakeFiles/hello_test.dir/test.cpp.o: ../test.cpp \
   _deps/googletest-src/googletest/include/gtest/gtest_prod.h \
   _deps/googletest-src/googletest/include/gtest/gtest-typed-test.h \
   _deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h \
+  ../BigNumber.h \
   ../Calandar.h
 
 

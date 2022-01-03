@@ -37,6 +37,20 @@ TEST(BigNumberTest, overflow) {
 }
 
 TEST(CalandarTest, cal) {
-	ASSERT_TRUE(1 == 1);
+	Calandar cal(1, 2022);
+	int** c = cal.get();
+	int d = 1;
+	for (int i = 0; c[i] != nullptr; i++) {
+		for (int j = 0; j < 7; j++) {
+			int x = c[i][j];
+			if (x == 0) {
+			} else {
+				ASSERT_TRUE(c[i][j] == d);
+				d++;
+			}
+		}
+	}
+
+	ASSERT_TRUE(d - 1 == 31);
 
 }
