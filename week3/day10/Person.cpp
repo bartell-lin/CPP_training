@@ -18,10 +18,11 @@ Person::Person(string n) {
 			persons[i] = this;
 		}
 	}
+	index++;
 }
 
 Person::~Person() {
-	for (int i = 0; i < index; i++) {
+	for (int i = 0; i < index - 1; i++) {
 		delete persons[i];
 	}
 }
