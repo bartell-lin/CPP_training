@@ -4,18 +4,18 @@ using namespace std;
 
 class Shape2D {
 public:
-	Shape2D();
-	~Shape2D();
+	Shape2D() = default;
+	virtual ~Shape2D() = default;
 
-	Shape2D(const Shape2D& other);
-	Shape2D& operator=(const Shape2D& other);
-	Shape2D(Shape2D&& other);
-	Shape2D& operator=(Shape2D&& other);
+	Shape2D(const Shape2D& other) = default;
+	Shape2D& operator=(const Shape2D& other) = default;
+	Shape2D(Shape2D&& other) = default;
+	Shape2D& operator=(Shape2D&& other) = default;
 
 	inline static string called;
 
-	virtual double area();
-	virtual double perimeter();
+	virtual double area() = 0;
+	virtual double perimeter() = 0;
 };
 
 class Polygon: public Shape2D {

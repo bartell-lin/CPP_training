@@ -5,15 +5,7 @@
 using namespace std;
 
 // Shape2D 
-Shape2D::Shape2D() {}
-Shape2D::~Shape2D() {}
-Shape2D::Shape2D(const Shape2D& other) {}
-Shape2D& Shape2D::operator=(const Shape2D& other) {return *this;}
-Shape2D::Shape2D(Shape2D&& other) {}
-Shape2D& Shape2D::operator=(Shape2D&& other) {return *this;}
 
-double Shape2D::area() {called = "Shape2D"; return 0;}
-double Shape2D::perimeter() {called = "Shape2D"; return 0;}
 
 // Polygon
 Polygon::Polygon(vector<vector<int>> lines): lines(lines) {}
