@@ -117,32 +117,41 @@ public:
 	bool operator==(Account<R>& other) {
 		return fabs(amt.value - other.val()) < numeric_limits<double>::epsilon();
 	}
-	bool operator!=(Account& other) {
-		return fabs(amt.value - other.amt.value) >= numeric_limits<double>::epsilon();
+	template<class R>
+	bool operator!=(Account<R>& other) {
+		return fabs(amt.value - other.val()) >= numeric_limits<double>::epsilon();
 	}
-	bool operator>(Account& other) {
-		return amt.value > other.amt.value;
+	template<class R>
+	bool operator>(Account<R>& other) {
+		return amt.value > other.val();
 	}
-	bool operator<(Account& other) {
-		return amt.value < other.amt.value;
+	template<class R>
+	bool operator<(Account<R>& other) {
+		return amt.value < other.val();
 	}
-	float operator+(Account& other) {
-		return amt.value + other.amt.value;
+	template<class R>
+	float operator+(Account<R>& other) {
+		return amt.value + other.val();
 	}
-	float operator-(Account& other) {
-		return amt.value - other.amt.value;
+	template<class R>
+	float operator-(Account<R>& other) {
+		return amt.value - other.val();
 	}
-	float operator*(Account& other) {
-		return amt.value * other.amt.value;
+	template<class R>
+	float operator*(Account<R>& other) {
+		return amt.value * other.val();
 	}
-	float operator/(Account& other) {
-		return amt.value / other.amt.value;
+	template<class R>
+	float operator/(Account<R>& other) {
+		return amt.value / other.val();
 	}
-	void operator+=(Account& other) {
-		amt.value += other.amt.value;
+	template<class R>
+	void operator+=(Account<R>& other) {
+		amt.value += other.val();
 	}
-	void operator-=(Account& other) {
-		amt.value -= other.amt.value;
+	template<class R>
+	void operator-=(Account<R>& other) {
+		amt.value -= other.val();
 	}
 
 	operator Dollar() const {
