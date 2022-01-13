@@ -107,8 +107,8 @@ public:
 	}
 
 	template<class R>
-	R* currency() {
-		unique_ptr<R> r(new Account(amt));
+	Account<R>* currency() {
+		Account<R>* r = new Account<R>(amt.value);
 		return r;
 	}
 

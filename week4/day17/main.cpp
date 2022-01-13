@@ -28,9 +28,11 @@ int main() {
 	assert(a > b);
 
 	Yen y = static_cast<Yen>(a);
-
+	Account<Yen>* x = a.currency<Yen>();
 
 	Account<Yen> c(y);
+	assert(*x == c);
+	delete x;
 
 	Account<Yen> d = c;
 	static_assert(is_same_v<decltype(d), Account<Yen>>);
