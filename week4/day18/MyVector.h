@@ -33,6 +33,7 @@ public:
 		copy(other.mData, other.mData + mSize, mData);
 	}
 	myvector(myvector<T>&& other) {
+		mData = new T[mCapacity];
 		swap(mSize, other.mSize);
 		swap(mCapacity, other.mCapacity);
 		swap(mData, other.mData);
@@ -49,6 +50,7 @@ public:
 	}
 	myvector& operator=(myvector<T>&& other) {
 		if (this != &other) {
+			mData = new T[mCapacity];
 			swap(mSize, other.mSize);
 			swap(mCapacity, other.mCapacity);
 			swap(mData, other.mData);

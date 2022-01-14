@@ -13,7 +13,7 @@ int main() {
 	v.push_back(50);
 	v.insert(2, 30);
 
-	cout << v.size() << endl;
+	assert(v.size() == 5);
 	
 
 	int c = 0;
@@ -35,6 +35,17 @@ int main() {
 		const auto i = *it;
 		assert(i == s[c++]);
 	}
+	s.clear();
+	assert(s.size() == 0);
+
+	myvector<int> v2 = v;
+	v2.push_back(60);
+	assert(v2.size() > v.size());
+	v2.pop_back();
+	assert(v2 == v);
+
+	myvector<int> v3 = move(v2);
+	assert(v3.size() == 5);
 
 
 	cout << "asserts passed" << endl;
