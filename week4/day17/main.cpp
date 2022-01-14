@@ -2,6 +2,7 @@
 #include <iostream>
 #include <type_traits>
 #include <typeinfo>
+#include <cassert>
 
 using namespace std;
 
@@ -38,5 +39,7 @@ int main() {
 	static_assert(is_same_v<decltype(d), Account<Yen>>);
 
 	Account<Euro> e = move(b);
+
+	cout << "asserts passed" << endl;
 
 }
