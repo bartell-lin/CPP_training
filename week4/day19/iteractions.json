@@ -1,10 +1,34 @@
-{
-	"10":  2000,
-	"20": 8000,
-	"50": 50000,
-	"100": 200000,
-	"200": 800000,
-	"500": 5e+06,
-	"1000": 2e+07,
-	"2000": 8e+07
-}
+[
+	{
+		"N": 10,
+		"interactions/sec": 2000
+	},
+	{
+		"N": 20,
+		"interactions/sec": 8000
+	},
+	{
+		"N": 50,
+		"interactions/sec": 50000
+	},
+	{
+		"N": 100,
+		"interactions/sec": 200000
+	},
+	{
+		"N": 200,
+		"interactions/sec": 800000
+	},
+	{
+		"N": 500,
+		"interactions/sec": 5e+06
+	},
+	{
+		"N": 1000,
+		"interactions/sec": 2e+07
+	},
+	{
+		"N": 2000,
+		"interactions/sec": 8e+07
+	}
+]
