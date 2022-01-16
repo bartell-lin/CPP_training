@@ -21,8 +21,8 @@ int main() {
 	int numBodies[] = {10, 20, 50, 100, 200, 500, 1000, 2000};
 	[=]() {
 		for (int i: numBodies) {
-		double is = calc(i);
-		cout << "Num Bodies: " << i << "  Num iteractions per sec: " << is << endl;
+			double is = calc(i);
+			cout << "Num Bodies: " << i << "  Num iteractions per sec: " << is << endl;
 		}
 	}();
 
