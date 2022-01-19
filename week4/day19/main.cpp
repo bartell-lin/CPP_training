@@ -32,7 +32,7 @@ int main() {
 double calc(int num) {
 	int N = num;
 	double G = 6.673e-11;
-	double timestep = 0.01;
+	double timestep = 0.05;
 	double initial_mass = 1.0;
 	double k = 300;
 	double D = 0;
