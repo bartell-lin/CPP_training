@@ -1,8 +1,10 @@
 #include <iostream>
 #include <memory>
+#include <algorithm>
 #include <stdexcept>
 #include <iterator>
 #include <cstddef>
+#include <cstring>
 using namespace std;
 
 template<typename T>
@@ -106,7 +108,7 @@ public:
 	void reserve(int tCount) {  
 		int newSize = mCapacity + tCount;
 		T* newArr = new T[newSize];
-		memcpy(newArr, mData, mCapacity * sizeof(T));
+		copy(mData, mData + mCapacity, newArr);
 		mCapacity = newSize;
 		delete [] mData;
 		mData = newArr;
