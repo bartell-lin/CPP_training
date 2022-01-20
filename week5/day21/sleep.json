@@ -1,0 +1,34 @@
+[
+	{
+		"numThreads": 1,
+		"milliseconds": 102873
+	},
+	{
+		"numThreads": 2,
+		"milliseconds": 103227
+	},
+	{
+		"numThreads": 3,
+		"milliseconds": 103576
+	},
+	{
+		"numThreads": 4,
+		"milliseconds": 104837
+	},
+	{
+		"numThreads": 5,
+		"milliseconds": 104571
+	},
+	{
+		"numThreads": 6,
+		"milliseconds": 106276
+	},
+	{
+		"numThreads": 7,
+		"milliseconds": 106858
+	},
+	{
+		"numThreads": 8,
+		"milliseconds": 105051
+	}
+]
