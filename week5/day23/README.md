@@ -1,0 +1,4 @@
+To detect if there was a deadlock, I ran a for loop to simulate 2000 interactations per thread to test if there was a deadlock in the program. In the faultly 
+code, the program deadlocks and doesn't finish running. In the fixed version, I concluded that there were no deadlock after the program finished despite many simulations.
+I was able to resolve the deadlock by using std::lock to lock both classes at the same time. In the faulty version, I not only locked each class one at a time, 
+I also unlocked then out of order. This asymmetric locking and unlocking is what caused the deadlock in the faulty code. 
