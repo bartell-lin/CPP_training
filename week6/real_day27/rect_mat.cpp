@@ -28,7 +28,7 @@ vector<vector<T>> mat_mult(const vector<vector<T>>& matrixA, const vector<vector
 	#pragma omp parallel for
 	for (int i = 0; i < y; i++) {
 		for (int j = 0; j < z; j++) {
-			flatB[j * z + i] = matrixB[i][j];
+			flatB[j * y + i] = matrixB[i][j];
 		}
 	}
 
@@ -94,8 +94,4 @@ int main() {
 	}
 	cout << endl;
 
-
-
-	cout << "End of program??" << endl;
-	cout << "Unsure why it error after this in docker" <<endl;
 }
