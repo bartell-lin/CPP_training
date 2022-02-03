@@ -1,6 +1,5 @@
-CC = /opt/rh/gcc-toolset-11/root/usr/bin/g++
-
-CFLAGS = -std=c++2a -fcoroutines -g -gdwarf-2 -pthread -Wall
+CC = /opt/rh/gcc-toolset-10/root/usr/bin/g++
+CFLAGS = -fcoroutines -std=c++2a -g -pthread -Wall
 
 TARGET = main
 

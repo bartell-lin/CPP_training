@@ -90,12 +90,9 @@ T parallel_accumulate(Iterator first, Iterator last, T init) {
         std::advance(block_end, block_size);
 
         futures[i] = promises[i].get_future();
-        // pool.submit([&] {
-        //       accumulate_block<Iterator,T>()(block_start, block_end, std::move(promises[i]));
-        //     });
-        [&] {
+        pool.submit([&] {
               accumulate_block<Iterator,T>()(block_start, block_end, std::move(promises[i]));
-            }();
+            });
         block_start = block_end;
     }
     std::promise<T> prom;
@@ -112,8 +109,8 @@ T parallel_accumulate(Iterator first, Iterator last, T init) {
 }
 
 int main() {
-	std::vector<int> myvec(1000, 1);
+	std::vector<int> myvec(20, 1);
 	int sum = parallel_accumulate<std::vector<int>::iterator, int>(myvec.begin(), myvec.end(), 0);
 
-    assert(sum == 1000);
+    assert(sum == 20);
 }
